@@ -1,18 +1,26 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0.beta'
+# gem 'rails', '4.0.0.beta'
 
 # Bundle edge Rails instead:
-# gem 'rails', github: 'rails/rails'
+gem 'rails', github: 'rails/rails'
+gem 'active_record_deprecated_finders', github: 'rails/active_record_deprecated_finders'
 
-gem 'sqlite3'
+ruby "1.9.3"
+
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
-  gem 'sass-rails',   '~> 4.0.0.beta'
-  gem 'coffee-rails', '~> 4.0.0.beta'
+  gem 'sass-rails',   '~> 4.0.0.beta', github: 'rails/sass-rails'
+  gem 'coffee-rails', '~> 4.0.0.beta', github: 'rails/coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
